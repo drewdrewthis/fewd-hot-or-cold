@@ -13,9 +13,12 @@ $(document).ready(function(){
   	});
 
   	// New Game Function 
-
-  	// Create Secret Number
-
+  	function newGame(){
+  		// Create Secret Number
+  		var secretNum = Math.floor(Math.random() * 100 + 1);
+  		console.log(secretNum);
+  	};
+  	
   	// Accept/Evaluate User Input
 
   	// Compare User Input to Secret Number
@@ -27,7 +30,7 @@ $(document).ready(function(){
   	// Count Guesses
 
 
-
+  	newGame();
 });
 
 
