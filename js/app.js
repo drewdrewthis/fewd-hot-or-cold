@@ -16,8 +16,8 @@ $(document).ready(function(){
   		console.log(secretNum);
   	};
 
+  	// Compare User Input to Secret Number
   	function compare(userNum,secretNum) {
-  		
   		if(userNum>100){
   			$('#feedback').html("Too high! Between 1 and 100");
   		}
@@ -26,7 +26,7 @@ $(document).ready(function(){
   			newGame();
   		} else {
   			var diff = Math.abs(userNum - secretNum);
-
+  			// Tell the User Hot or Cold
   			if(diff<5) {
   				$('#feedback').text("So warm!");
   			}
@@ -40,7 +40,7 @@ $(document).ready(function(){
   				$('#feedback').text("So cold..");
   			}
   		}
-  	};
+  	};	
   	
   	// Accept/Evaluate User Input
   	$('form').submit(function(e) {
@@ -59,16 +59,6 @@ $(document).ready(function(){
   		};
   		compare(userNum,secretNum);
   	});
-
-  	// Compare User Input to Secret Number
-
-  	// Tell the User Hot or Cold
-
-  	// Add Guess to Guess List
-
-  	// Count Guesses
-
-  	// Make New Game Button Operational
 
   	$('.new').on('click', function() {
   		newGame();
