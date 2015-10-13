@@ -15,6 +15,7 @@ $(document).ready(function(){
   	$('form').submit(function(e) {
   		e.preventDefault();
   		var userNum = $('#userGuess').val();
+  		$('#userGuess').val([]);
   		console.log(userNum);
   		if(!parseInt(userNum))
   			$('#feedback').text("That's not a number!");
