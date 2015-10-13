@@ -21,6 +21,12 @@ $(document).ready(function(){
   	
   	// Accept/Evaluate User Input
 
+  	$('form').submit(function(e) {
+  		e.preventDefault();
+  		var userNum = $('#userGuess').val();
+  		console.log(userNum);
+  	});
+
   	// Compare User Input to Secret Number
 
   	// Tell the User Hot or Cold
