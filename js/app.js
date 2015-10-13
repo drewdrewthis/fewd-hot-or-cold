@@ -25,6 +25,10 @@ $(document).ready(function(){
   		e.preventDefault();
   		var userNum = $('#userGuess').val();
   		console.log(userNum);
+  		if(!parseInt(userNum))
+  			$('#feedback').text("That's not a number!");
+  		else
+  			$('#feedback').text("Nice!");
   	});
 
   	// Compare User Input to Secret Number
