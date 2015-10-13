@@ -17,6 +17,7 @@ $(document).ready(function(){
   		var userNum = $('#userGuess').val();
   		$('#userGuess').val([]);
   		console.log(userNum);
+  		$('ul#guessList').append("<li>"+userNum+"</li>");
   		if(!parseInt(userNum))
   			$('#feedback').text("That's not a number!");
   		else {
