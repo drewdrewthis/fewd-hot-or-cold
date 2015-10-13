@@ -2,8 +2,10 @@
 $(document).ready(function(){
 	
 
-	var counter = 0,
-		secretNum = null;
+	var counter = false,
+		secretNum = null,
+		diff = 0,
+		oldDiff = 0;
 
   	// New Game Function 
   	function newGame(){
@@ -17,7 +19,7 @@ $(document).ready(function(){
   	};
 
   	// Compare User Input to Secret Number
-  	function compare(userNum,secretNum) {
+  	function compare(userNum,secretNum,counter) {
   		if(userNum>100){
   			$('#feedback').html("Too high! Between 1 and 100");
   		}
@@ -25,21 +27,30 @@ $(document).ready(function(){
   			alert('yaas!');
   			newGame();
   		} else {
-  			var diff = Math.abs(userNum - secretNum);
+  			diff = Math.abs(userNum - secretNum);
   			// Tell the User Hot or Cold
-  			if(diff<5) {
-  				$('#feedback').text("So warm!");
-  			}
-  			else if(diff<20) {
-  				$('#feedback').text("Warm!");
-  			}
-  			else if(diff<50) {
-  				$('#feedback').text("Cold..");
-  			}
-  			else if(diff<80) {
-  				$('#feedback').text("So cold..");
-  			}
-  		}
+  			if(counter==1) {
+  				
+  				if(diff<5) {
+  					$('#feedback').text("So warm!");
+  				}
+  				else if(diff<20) {
+  					$('#feedback').text("Warm!");
+  				}
+  				else if(diff<50) {
+  					$('#feedback').text("Cold..");
+  				}
+  				else if(diff<80) {
+  					$('#feedback').text("So cold..");
+  				}
+  			} else if(diff<oldDiff) {
+  						$('#feedback').text("Warmer");
+  					}
+  					else {
+  						$('#feedback').text("Colder..");
+  					}
+  			oldDiff=diff;
+  		};
   	};	
   	
   	// Accept/Evaluate User Input
@@ -57,7 +68,7 @@ $(document).ready(function(){
   			$('#count').text(counter);
   			$('ul#guessList').append("<li>"+userNum+"</li>");
   		};
-  		compare(userNum,secretNum);
+  		compare(userNum,secretNum,counter);
   	});
 
   	$('.new').on('click', function() {
