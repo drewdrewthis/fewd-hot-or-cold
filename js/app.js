@@ -17,7 +17,11 @@ $(document).ready(function(){
   	};
 
   	function compare(userNum,secretNum) {
-  		if(userNum == secretNum) {
+  		
+  		if(userNum>100){
+  			$('#feedback').html("Too high! Between 1 and 100");
+  		}
+  		else if(userNum == secretNum) {
   			alert('yaas!');
   			newGame();
   		} else {
