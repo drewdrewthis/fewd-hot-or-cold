@@ -67,8 +67,8 @@ $(document).ready(function(){
   			counter++;
   			$('#count').text(counter);
   			$('ul#guessList').append("<li>"+userNum+"</li>");
+  			compare(userNum,secretNum,counter);
   		};
-  		compare(userNum,secretNum,counter);
   	});
 
   	$('.new').on('click', function() {
