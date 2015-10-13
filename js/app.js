@@ -29,6 +29,11 @@ $(document).ready(function(){
 
   	// Count Guesses
 
+  	// Make New Game Button Operational
+
+  	$('.new').on('click', function() {
+  		newGame();
+  	});
 
   	newGame();
 });
