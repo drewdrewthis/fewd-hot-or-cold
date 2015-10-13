@@ -1,16 +1,8 @@
 
 $(document).ready(function(){
 	
-	/*--- Display information modal box ---*/
-  	$(".what").click(function(){
-    	$(".overlay").fadeIn(1000);
 
-  	});
-
-  	/*--- Hide information modal box ---*/
-  	$("a.close").click(function(){
-  		$(".overlay").fadeOut(1000);
-  	});
+	var counter = 0;
 
   	// New Game Function 
   	function newGame(){
@@ -20,15 +12,18 @@ $(document).ready(function(){
   	};
   	
   	// Accept/Evaluate User Input
-
   	$('form').submit(function(e) {
   		e.preventDefault();
   		var userNum = $('#userGuess').val();
   		console.log(userNum);
   		if(!parseInt(userNum))
   			$('#feedback').text("That's not a number!");
-  		else
+  		else {
   			$('#feedback').text("Nice!");
+  			// Count Guesses
+  			counter++;
+  			$('#count').text(counter);
+  		}
   	});
 
   	// Compare User Input to Secret Number
@@ -43,6 +38,17 @@ $(document).ready(function(){
 
   	$('.new').on('click', function() {
   		newGame();
+  	});
+
+  	/*--- Display information modal box ---*/
+  	$(".what").click(function(){
+    	$(".overlay").fadeIn(1000);
+
+  	});
+
+  	/*--- Hide information modal box ---*/
+  	$("a.close").click(function(){
+  		$(".overlay").fadeOut(1000);
   	});
 
   	newGame();
